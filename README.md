@@ -1,15 +1,47 @@
-[![Run Python-Script](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml/badge.svg)](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml)
+[![Update Schedule](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml/badge.svg)](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml)
 
-# Nuerburgring Calendar
-Here you find an ICS-calendar with the open hours of the 'Ring (Nordschleife and GP-Track separate)
+# 🏁 Nürburgring Calendar
 
-## How often is it updated:
-The Program pulls/reads the schedule from https://nuerburgring.de/open-hours every 4 hours, so it's not guaranteed to always be fully up-to-date on shortterm changes.
-It's rather meant to offer a quick glance at the forecasted schedule. It does make sense to check the official site if you plan to go, just to be sure.
+Subscribable ICS calendar feed for **Nürburgring opening hours** — updated automatically every 4 hours.  
+Separate calendars for the **Nordschleife** and **GP-Track** (Grand Prix Track).
 
-## How to add the calendar:
-Add the ics to you calendar using:
-- https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Nordschleife.ics
-- https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics
+> Always subscribe via URL instead of downloading — that way your calendar stays in sync automatically.
 
-By downloading and importing you'll have a snapshot of the time you downloaded, so instead add a subscription to the links in your calendar app
+---
+
+## 📅 Subscribe
+
+Add the URL directly to your calendar app (do **not** download — subscribe via URL to get automatic updates):
+
+| Calendar         | URL                                                                                                           |
+|------------------|---------------------------------------------------------------------------------------------------------------|
+| **Nordschleife** | `https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Nordschleife.ics`     |
+| **GP-Track**     | `https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics` |
+
+### Google Calendar
+1. Open [Google Calendar](https://calendar.google.com) → **Other calendars** → **+** → **From URL**
+2. Paste the URL and click **Add calendar**
+
+### Apple Calendar (macOS / iOS)
+1. Open Calendar → **File** → **New Calendar Subscription**
+2. Paste the URL and click **Subscribe**
+
+### Outlook
+1. Open Outlook → **Add calendar** → **Subscribe from web**
+2. Paste the URL and click **Import**
+
+---
+
+## 🔄 Update Frequency
+
+The schedule is pulled from [nuerburgring.de/open-hours](https://nuerburgring.de/open-hours) every **4 hours**.
+
+- Short-notice changes may not be reflected immediately
+- This calendar is best used for **planning ahead**, not last-minute checks
+- Always verify on the [official site](https://nuerburgring.de/open-hours) before heading out
+
+---
+
+## ⚠️ Disclaimer
+
+This is an unofficial, community-maintained project and is not affiliated with Nürburgring GmbH.
