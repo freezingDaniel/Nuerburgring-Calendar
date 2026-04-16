@@ -1,4 +1,4 @@
-[![Update Schedule](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml/badge.svg)](https://github.com/freezingDaniel/Nuerburgring/actions/workflows/update-release.yml)
+[![Update Schedule](https://github.com/freezingDaniel/Nuerburgring-Calendar/actions/workflows/update-release.yml/badge.svg)](https://github.com/freezingDaniel/Nuerburgring-Calendar/actions/workflows/update-release.yml)
 
 # 🏁 Nürburgring Calendar
 
@@ -13,10 +13,10 @@ Separate calendars for the **Nordschleife** and **GP-Track** (Grand Prix Track).
 
 Add the URL directly to your calendar app (do **not** download — subscribe via URL to get automatic updates):
 
-| Calendar         | URL                                                                                                           |
-|------------------|---------------------------------------------------------------------------------------------------------------|
-| **Nordschleife** | `https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Nordschleife.ics`     |
-| **GP-Track**     | `https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics` |
+| Calendar         | URL                                                                                                                    |
+|------------------|------------------------------------------------------------------------------------------------------------------------|
+| **Nordschleife** | `https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics`     |
+| **GP-Track**     | `https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics` |
 
 ### Google Calendar
 1. Open [Google Calendar](https://calendar.google.com) → **Other calendars** → **+** → **From URL**
