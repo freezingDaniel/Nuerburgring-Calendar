@@ -59,9 +59,9 @@ jobs:
           *.ics
         # An optional body for the release.
         body: Subscribe to the ics in your calendar using 
-          https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Nordschleife.ics 
+          https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics 
           and 
-          https://github.com/freezingDaniel/Nuerburgring/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics 
+          https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics 
           respectiveley
         # An optional commit reference. This will be used to create the tag if it does not exist.
         commit: main
