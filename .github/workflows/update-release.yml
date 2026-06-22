@@ -8,74 +8,72 @@ on:
 
 jobs:
   run-python:
-    permissions: 
+    permissions:
       contents: write
     runs-on: ubuntu-latest
 
     steps:
-    - name: Get current date
-      id: date
-      run: |
-        echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-        
-    - name: Check out repository
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: .
-    
-    - name: Set up python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10' 
+      - name: Get current date
+        id: date
+        run: |
+          echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        
-    - name: Run Python script
-      run: |
-        python main.py
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: ics artifacts
-        path: |
-          *.ics
-        if-no-files-found: error
-        retention-days: 7
-        compression-level: 6
-        overwrite: true
-        
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        # An optional flag which indicates if we should update a release if it already exists. Defaults to false.
-        allowUpdates: true
-        # An optional flag which indicates if artifact read or upload errors should fail the build.
-        artifactErrorsFailBuild: true
-        artifacts: |
-          *.ics
-        # An optional body for the release.
-        body: Subscribe to the ics in your calendar using 
-          https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics 
-          and 
-          https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics 
-          respectiveley
-        # An optional commit reference. This will be used to create the tag if it does not exist.
-        commit: main
-        # Optionally marks this release as a draft release. Set to true to enable.
-        draft: false
-        # Indicates if the release should be the "latest" release or not. 
-        # legacy specifies that the latest release should be determined based on the release creation date and higher semantic version.
-        makeLatest: true
-        # An optional name for the release. If this is omitted the tag will be used.
-        name: ${{ env.NOW }}
-        # Optionally marks this release as prerelease. Set to true to enable.
-        prerelease: false
-        # Indicates if existing release artifacts should be removed.
-        removeArtifacts: true
-        # An optional tag for the release. If this is omitted the git ref will be used (if it is a tag).
-        tag: latest
-              
+      - name: Set up python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Python script
+        run: |
+          python main.py
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: ics artifacts
+          path: |
+            *.ics
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6
+          overwrite: true
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          # An optional flag which indicates if we should update a release if it already exists. Defaults to false.
+          allowUpdates: true
+          # An optional flag which indicates if artifact read or upload errors should fail the build.
+          artifactErrorsFailBuild: true
+          artifacts: |
+            *.ics
+          # An optional body for the release.
+          body: Subscribe to the ics in your calendar using
+            https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics
+            and
+            https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics
+            respectiveley
+          # An optional commit reference. This will be used to create the tag if it does not exist.
+          commit: main
+          # Optionally marks this release as a draft release. Set to true to enable.
+          draft: false
+          # Indicates if the release should be the "latest" release or not.
+          # legacy specifies that the latest release should be determined based on the release creation date and higher semantic version.
+          makeLatest: true
+          # An optional name for the release. If this is omitted the tag will be used.
+          name: ${{ env.NOW }}
+          # Optionally marks this release as prerelease. Set to true to enable.
+          prerelease: false
+          # Indicates if existing release artifacts should be removed.
+          removeArtifacts: true
+          # An optional tag for the release. If this is omitted the git ref will be used (if it is a tag).
+          tag: latest
