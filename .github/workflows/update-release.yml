@@ -2,9 +2,10 @@ name: Update Calendar and create Release
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
     - cron: "8 */4 * * *"
+  workflow_dispatch:
 
 jobs:
   run-python:
@@ -14,19 +15,16 @@ jobs:
 
     steps:
       - name: Get current date
-        id: date
-        run: |
-          echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
 
-      - name: Set up python
-        uses: actions/setup-python@v6
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.13"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -34,14 +32,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Python script
-        run: |
-          python main.py
+        run: python main.py
 
-      - uses: actions/upload-artifact@v6
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: ics artifacts
-          path: |
-            *.ics
+          name: ics-artifacts
+          path: "*.ics"
           if-no-files-found: error
           retention-days: 7
           compression-level: 6
@@ -54,14 +51,16 @@ jobs:
           allowUpdates: true
           # An optional flag which indicates if artifact read or upload errors should fail the build.
           artifactErrorsFailBuild: true
-          artifacts: |
-            *.ics
+          artifacts: "*.ics"
           # An optional body for the release.
-          body: Subscribe to the ics in your calendar using
-            https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics
-            and
-            https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics
-            respectiveley
+          body: |
+            Subscribe to the calendars in your calendar app using the following links:
+
+            - **Nordschleife Tourist Drives:**
+              `https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Nordschleife.ics`
+
+            - **Grand Prix Track Tourist Drives:**
+              `https://github.com/freezingDaniel/Nuerburgring-Calendar/releases/download/latest/Tourist-Drives-Grand-Prix-Track.ics`
           # An optional commit reference. This will be used to create the tag if it does not exist.
           commit: main
           # Optionally marks this release as a draft release. Set to true to enable.
